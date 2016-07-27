@@ -63,4 +63,6 @@ coefs = summary(pmod)$coefficients[,1]
 pred = exp(stack[,c(1:14)]%*%coefs[c(2:15)])
 predmat = matrix(x1*0,length(x),length(y))
 predmat[crit] = pred
+png("map.png")
 image(x,y,predmat, asp=1, xlim=lims[,1], ylim=lims[,2], xlab="", ylab="", main="", col=cols)
+dev.off()
